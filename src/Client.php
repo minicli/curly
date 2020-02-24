@@ -5,7 +5,7 @@ namespace Minicli\Curly;
 class Client
 {
     /** @var array */
-    protected $last_request_info;
+    public $last_request_info;
 
     /**
      * Makes a GET query
