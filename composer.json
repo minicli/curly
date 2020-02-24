@@ -7,7 +7,7 @@
   "keywords": ["curl","wrapper","api"],
   "autoload": {
     "psr-4": {
-      "Minicli\\Curly": "src/"
+      "Minicli\\Curly\\": "src/"
     }
   },
   "require": {
