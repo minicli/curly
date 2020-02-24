@@ -1,0 +1,16 @@
+{
+  "name": "minicli/curly",
+  "type": "library",
+  "description": "Simple Curl Client",
+  "license": "MIT",
+  "homepage": "https://github.com/erikaheidi/minicli",
+  "keywords": ["curl","wrapper","api"],
+  "autoload": {
+    "psr-4": {
+      "Minicli\\Curly": "src/"
+    }
+  },
+  "require": {
+    "ext-curl": "*"
+  }
+}
