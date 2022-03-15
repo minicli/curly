@@ -23,7 +23,7 @@ it('returns empty array when obtaining request info before a request is made', f
         ->toBeEmpty();
 });
 
-it('makes a successful GET request to the GitHub API', function() {
+it('makes a successful GET request to the GitHub API and returns request info', function() {
     $client = new Client();
     $response = $client->get(
         'https://api.github.com/rate_limit',
@@ -32,4 +32,7 @@ it('makes a successful GET request to the GitHub API', function() {
     //expect($response)->dd();
     expect($response)->toBeArray()->toHaveKeys(['code', 'body']);
     expect($response['code'])->toBeIn([200, 301, 302]);
+    expect($client->getRequestInfo())
+        ->toBeArray()
+        ->not()->toBeEmpty();
 });
