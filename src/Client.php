@@ -54,10 +54,22 @@ class Client
         return $this->agent->delete($endpoint, $this->getHeaders($headers), $header_out);
     }
 
+    /**
+     * @param array $headers
+     * @return array
+     */
     public function getHeaders(array $headers = []): array
     {
         return array_merge([
             'User-Agent: Curly 0.2',
         ], $headers);
+    }
+
+    /**
+     * @return array
+     */
+    public function getRequestInfo(): array
+    {
+        return $this->agent->getRequestInfo();
     }
 }

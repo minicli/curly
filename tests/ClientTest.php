@@ -11,6 +11,25 @@ it('creates a client with a curl agent by default', function () {
 it('sets default headers with User-Agent', function () {
     $client = new Client();
     $headers = $client->getHeaders();
-    expect($headers)->toBeArray();
-    expect($headers)->toContain('User-Agent: Curly 0.2');
+    expect($headers)
+        ->toBeArray()
+        ->toContain('User-Agent: Curly 0.2');
+});
+
+it('returns empty array when obtaining request info before a request is made', function() {
+    $client = new Client();
+    expect($client->getRequestInfo())
+        ->toBeArray()
+        ->toBeEmpty();
+});
+
+it('makes a successful GET request to the GitHub API', function() {
+    $client = new Client();
+    $response = $client->get(
+        'https://api.github.com/rate_limit',
+        [ 'Accept: application/vnd.github.v3+json' ]
+    );
+    //expect($response)->dd();
+    expect($response)->toBeArray()->toHaveKeys(['code', 'body']);
+    expect($response['code'])->toBeIn([200, 301, 302]);
 });

@@ -9,6 +9,11 @@ class CurlAgent implements AgentInterface
     /** @var array */
     public array $last_request_info = [];
 
+    public function getRequestInfo(): array
+    {
+        return $this->last_request_info;
+    }
+
     /**
      * Makes a GET query
      * @param string $endpoint API endpoint
