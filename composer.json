@@ -11,6 +11,15 @@
     }
   },
   "require": {
-    "ext-curl": "*"
+    "ext-curl": "*",
+    "ext-json": "*",
+    "friendsofphp/php-cs-fixer": "^3.7"
+  },
+  "require-dev": {
+    "pestphp/pest": "^1.21"
+  },
+  "scripts": {
+    "test" : ["pest"],
+    "csfix": ["php-cs-fixer fix"]
   }
 }
