@@ -20,17 +20,17 @@ Use the `Minicli/Curl/Client` class to make GET and POST requests using the `get
 This example queries the DEV API and gets the latest posts from a user:
 
 ```php
-    $crawler = new Client();
+$crawler = new Client();
 
-    $articles_response = $crawler->get('https://dev.to/api/articles?username=erikaheidi');
+$articles_response = $crawler->get('https://dev.to/api/articles?username=erikaheidi');
 
-    if ($articles_response['code'] !== 200) {
-        $app->getPrinter->error('Error while contacting the dev.to API.');
-        return 1;
-    }
-    
-    $articles = json_decode($articles_response['body'], true);
-    print_r($articles);
+if ($articles_response['code'] !== 200) {
+    $app->getPrinter->error('Error while contacting the dev.to API.');
+    return 1;
+}
+
+$articles = json_decode($articles_response['body'], true);
+print_r($articles);
 ```
 
 The following single-command Minicli application will fetch a user's latest stats from DEV.to using Curly (this requires `minicli/minicli`):
@@ -82,5 +82,3 @@ try {
 
 return 0;
 ```
-
-
