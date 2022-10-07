@@ -7,12 +7,13 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - uses: minicli/action-contributors@v3.2.1
+      - uses: minicli/action-contributors@v3.2.2
         name: "Update a projects CONTRIBUTORS file"
         env:
           CONTRIB_REPOSITORY: 'minicli/curly'
           CONTRIB_OUTPUT_FILE: 'CONTRIBUTORS.md'
-          CONTRIB_TEMPLATE: ${{ github.workspace }}/contributors
+          CONTRIB_STENCIL_DIR: ${{ github.workspace }}/.stencil
+          CONTRIB_TEMPLATE: contributors
       - name: Commit changes
         uses: test-room-7/action-update-file@v1
         with:
