@@ -83,6 +83,38 @@ class CurlAgent implements AgentInterface
     }
 
     /**
+     * Checks for CURLOPT_HTTP_VERSION to specify
+     * HTTP1.0, HTTP1.1, or HTTP2.0 request.
+     * Defaults to HTTP1.1.
+     * @return int
+     */
+    protected function getHttpVersion(): int
+    {
+	$http_version = CURL_HTTP_VERSION_1_1;
+	$curlopt = getenv('CURLOPT_HTTP_VERSION');
+	switch ($curlopt) {
+	    case false:
+                break;
+            case 'CURL_HTTP_VERSION_1_0':
+                $http_version = constant($curlopt);
+                break;
+            case 'CURL_HTTP_VERSION_1_1':
+                $http_version = constant($curlopt);
+                break;
+            case 'CURL_HTTP_VERSION_2':
+                $http_version = constant($curlopt);
+                break;
+            case 'CURL_HTTP_VERSION_2_0':
+                $http_version = constant($curlopt);
+                break;
+            default:
+		echo "Unknown HTTP version $curlopt, continuing anyway";
+		$http_version = 0;
+        }
+	return $http_version;
+    }
+
+    /**
      * Execs curl and saves information about the request.
      * Returns an array with two items: 'code' and 'body'.
      * @param $curl
@@ -90,6 +122,7 @@ class CurlAgent implements AgentInterface
      */
     protected function getQueryResponse($curl): array
     {
+        curl_setopt($curl, CURLOPT_HTTP_VERSION, $this->getHttpVersion());
         $response = curl_exec($curl);
         $this->last_request_info = curl_getinfo($curl);
         $response_code = $this->last_request_info['http_code'];
