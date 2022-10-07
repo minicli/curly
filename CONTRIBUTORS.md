@@ -1,9 +1,10 @@
 # Top Contributors: minicli/curly
-Shout out to our top contributors!
+_Last updated: Fri, 07 Oct 22 15:24:27 +0000_
+
+Shout out to our top contributors! Thank you for taking the time to submit your PRs to minicli/curly.
 
 - [erikaheidi](https://github.com/erikaheidi)
 - [thinkverse](https://github.com/thinkverse)
 - [jamonation](https://github.com/jamonation)
 
 
-_Last updated: Fri, 07 Oct 22 09:26:04 +0000_
