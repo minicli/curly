@@ -1,5 +1,5 @@
 # Top Contributors: minicli/curly
-_Last updated: Sun, 01 Mar 26 02:42:07 +0000_
+_Last updated: Wed, 01 Apr 26 02:56:17 +0000_
 
 Shout out to our top contributors! Thank you for taking the time to submit your PRs to minicli/curly.
 
